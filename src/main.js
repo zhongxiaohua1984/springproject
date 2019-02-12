@@ -1,12 +1,27 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+Vue.config.productionTip = false
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router/router'
 
-Vue.config.productionTip = false
+// 导入axios
+import axios from 'axios'
+Vue.prototype.$http=axios
+axios.defaults.baseURL = 'http://vue.studyit.io'; // 配置axios请求的地址
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-/* eslint-disable no-new */
+// 导入mint-ui
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
+import { Swipe, SwipeItem } from 'mint-ui';
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
+// 导入mui样式
+import './assets/css/mui.min.css'
+import './assets/css/icons-extra.css'
+
 new Vue({
   el: '#app',
   router,
