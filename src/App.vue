@@ -8,7 +8,9 @@
     </mt-header>
 
     <!-- main -->
-    <router-view></router-view>
+    <transition>
+      <router-view></router-view>
+    </transition>
 
     <!-- footer -->
     <nav class="mui-bar mui-bar-tab">
@@ -41,5 +43,19 @@ export default {};
 <style lang="scss" scoped>
 .app-container {
   margin-top: 40px;
+  overflow-x: hidden;
+}
+.v-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.v-leave-to {
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-100%);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
 }
 </style>

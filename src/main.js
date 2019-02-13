@@ -9,6 +9,9 @@ Vue.prototype.$http=axios
 axios.defaults.baseURL = 'http://vue.studyit.io'; // 配置axios请求的地址
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+// qs
+import qs from 'qs'
+
 // 导入mint-ui
 import MintUI from 'mint-ui'
 Vue.use(MintUI)
@@ -25,6 +28,7 @@ import './assets/css/icons-extra.css'
 new Vue({
   el: '#app',
   router,
+  qs,
   components: { App },
   template: '<App/>'
 })

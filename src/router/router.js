@@ -10,6 +10,10 @@ import shopcarContainer from '../components/shopcarContainer.vue'
 export default new Router({
   routes: [
     {
+      path:'/',
+      redirect:'/home'
+    },
+    {
       path: '/home',
       component:homeCantainer
     },
