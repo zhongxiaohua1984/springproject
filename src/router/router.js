@@ -6,7 +6,8 @@ import homeCantainer from '../components/homeCantainer.vue'
 import memberContainer from '../components/memberContainer.vue'
 import searchContainer from '../components/searchContainer.vue'
 import shopcarContainer from '../components/shopcarContainer.vue'
-
+import newsList from '../components/news/newsList.vue'
+import newsInfo from '../components/news/newsInfo.vue'
 export default new Router({
   routes: [
     {
@@ -28,6 +29,15 @@ export default new Router({
     {
       path:'/shopCar',
       component:shopcarContainer
+    },
+    {
+      path:'/home/newslist',
+      component:newsList
+    },
+    {
+      // path:'/home/newsinfo/:id',
+      path:'/home/newsinfo',
+      component:newsInfo
     }
   ],
   linkActiveClass:'mui-active'
