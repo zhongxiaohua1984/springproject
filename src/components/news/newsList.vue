@@ -26,7 +26,7 @@
 						</div>
 					</router-link>
 				</li>
-      
+
 			</ul>
   </div>
 </template>
@@ -36,7 +36,8 @@ import {Toast} from 'mint-ui'
 export default {
   data(){
     return {
-      newsList:[]
+      newsList:[],
+     
     }
   },
   created(){

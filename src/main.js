@@ -10,20 +10,27 @@ axios.defaults.baseURL = 'http://vue.studyit.io'; // 全局配置axios请求的�
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // qs
-import qs from 'qs'
+import qs from 'qs';
+Vue.prototype.$qs = qs;
 
 // 导入mint-ui
 import MintUI from 'mint-ui'
-Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
-import { Swipe, SwipeItem } from 'mint-ui';
+Vue.use(MintUI)
+import { Swipe, SwipeItem ,Lazyload } from 'mint-ui';
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.use(Lazyload);
 
 // 导入mui样式
 import './assets/css/mui.min.css'
 import './assets/css/icons-extra.css'
+
+// 导入缩略图
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
+
 
 var moment = require('moment');
 
