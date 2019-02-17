@@ -1,20 +1,7 @@
 
 <template>
   <div>
-    <mt-swipe :auto="4000">
-      <mt-swipe-item>
-        <img src="https://img.alicdn.com/simba/img/TB19BgSFCzqK1RjSZFLSuwn2XXa.jpg" alt>
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="https://img.alicdn.com/tps/i4/TB1WKNDE7voK1RjSZPfSutPKFXa.jpg_q90_.webp" alt>
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="https://img.alicdn.com/tps/i4/TB1WKNDE7voK1RjSZPfSutPKFXa.jpg_q90_.webp" alt>
-      </mt-swipe-item>
-      <!-- <mt-swipe-item v-for="item in lunbotu" :key=item.url>
-        <img :src="item.img">
-      </mt-swipe-item>-->
-    </mt-swipe>
+    <swipe :lunbotulist="lunbotu" :isfull="false"></swipe>
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <router-link to="/home/newslist">
@@ -57,10 +44,28 @@
 </template>
 <script>
 import { Toast } from "mint-ui";
+// 导入轮播图
+import swipe from "./subcomponents/swipe.vue";
 export default {
   data() {
     return {
-      lunbotu: []
+      lunbotu: [
+        {
+          src:'https://img.alicdn.com/tfs/TB1902tGjDpK1RjSZFrXXa78VXa-520-280.jpg_q90_.webp'
+        },
+        {
+          src:'https://img.alicdn.com/simba/img/TB1hCSQDMHqK1RjSZFkSut.WFXa.jpg'
+        },
+        {
+          src:'https://img.alicdn.com/simba/img/TB1NdTLz4TpK1RjSZR0SuvEwXXa.jpg'
+        },
+        {
+          src:'https://img.alicdn.com/tfs/TB160fAGXzqK1RjSZFvXXcB7VXa-520-280.jpg_q90_.webp'
+        },
+        {
+          src:'https://img.alicdn.com/simba/img/TB19mAsGHvpK1RjSZFqSuwXUVXa.jpg'
+        }
+      ]
     };
   },
   created() {
@@ -76,28 +81,25 @@ export default {
         }
       });
     }
+  },
+  components: {
+    swipe
   }
 };
 </script>
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 200px;
-  img {
-    width: 100%;
-  }
-}
 .mui-grid-view.mui-grid-9 {
   background-color: white;
   border: none;
   img {
-      width: 60px;
-      height: 60px;
-    }
+    width: 60px;
+    height: 60px;
+  }
   .mui-media-body {
     font-size: 13px;
   }
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell {
-    border: none;
-  }
+  border: none;
+}
 </style>

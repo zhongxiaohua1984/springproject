@@ -9,6 +9,9 @@ Vue.prototype.$http=axios
 axios.defaults.baseURL = 'http://vue.studyit.io'; // 全局配置axios请求的地址
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+// 导入vuex
+import vuex from './store/vuex.js'
+
 // qs
 import qs from 'qs';
 Vue.prototype.$qs = qs;
@@ -26,12 +29,13 @@ Vue.use(Lazyload);
 // 导入mui样式
 import './assets/css/mui.min.css'
 import './assets/css/icons-extra.css'
+import './assets/js/mui.min.js'
 
 // 导入缩略图
 import VuePreview from 'vue2-preview'
 Vue.use(VuePreview)
 
-
+// 导入时间插件
 var moment = require('moment');
 
 Vue.filter('dateFormat', function (dateStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
@@ -41,6 +45,7 @@ Vue.filter('dateFormat', function (dateStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
 new Vue({
   el: '#app',
   router,
+  vuex,
   qs,
   components: { App },
   template: '<App/>'

@@ -23,10 +23,10 @@
         <span class="mui-tab-label">会员</span>
       </router-link>
       <router-link class="mui-tab-item-list" to="/shopCar">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
+        <span class="mui-icon mui-icon-extra mui-icon-extra-cart" id="badge">
           <span class="mui-badge">9</span>
         </span>
-        <span class="mui-tab-label">购物车</span>
+        <span class="mui-tab-label" >购物车</span>
       </router-link>
       <router-link class="mui-tab-item-list" to="/search">
         <span class="mui-icon mui-icon-search"></span>
@@ -43,7 +43,7 @@ export default {};
 <style lang="scss" scoped>
 .app-container {
   .mint-header {
-    z-index: 9999
+    z-index: 99
   }
   margin-top: 40px;
   overflow-x: hidden;

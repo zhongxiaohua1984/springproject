@@ -1,11 +1,29 @@
 <template>
   <div class="goodslist">
-    <div class="goods-item">
+    <!-- <div class="goods-item" v-for="item in goodslist" :key="item.id">
+      <img
+        :src="item.img_url"
+
+      >
+      <h1 class="title" >{{item.title}}</h1>
+      <div class="info">
+        <p class="price">
+          <span class="now">￥{{sell_price}}</span>
+          <span class="old">￥{{makret_price}}</span>
+        </p>
+        <p class="sell">
+          <span>热卖中</span>
+          <span>剩{{stock_quantity}}件</span>
+        </p>
+      </div>
+    </div> -->
+    <!-- <router-link class="goods-item" to="/home/goodsInfo" tag="div"> -->
+    <router-link class="goods-item" to="/home/goodsInfo" tag="div">
       <img
         src="https://gd1.alicdn.com/imgextra/i1/1644008796/O1CN01CWffLT2EqcHmtBqfW_!!1644008796.jpg_400x400.jpg"
         alt
       >
-      <h1 class="title" >院风少女百搭格裙</h1>
+      <h1 class="title">【梗豆物语】春上新 原创*豆蔻*JK制服百褶裙 学院风少女百搭格裙</h1>
       <div class="info">
         <p class="price">
           <span class="now">￥2199</span>
@@ -16,7 +34,7 @@
           <span>剩60件</span>
         </p>
       </div>
-    </div>
+    </router-link>
     <div class="goods-item">
       <img
         src="https://gd1.alicdn.com/imgextra/i1/1644008796/O1CN01CWffLT2EqcHmtBqfW_!!1644008796.jpg_400x400.jpg"
@@ -51,27 +69,38 @@
         </p>
       </div>
     </div>
-    <div class="goods-item">
-      <img
-        src="https://gd1.alicdn.com/imgextra/i1/1644008796/O1CN01CWffLT2EqcHmtBqfW_!!1644008796.jpg_400x400.jpg"
-        alt
-      >
-      <h1 class="title">【梗豆物语】春上新 原创*豆蔻*JK制服百褶裙 学院风少女百搭格裙</h1>
-      <div class="info">
-        <p class="price">
-          <span class="now">￥2199</span>
-          <span class="old">￥2399</span>
-        </p>
-        <p class="sell">
-          <span>热卖中</span>
-          <span>剩60件</span>
-        </p>
-      </div>
-    </div>
+    <mt-button type="danger" size="large" @click="getMore">加载更多</mt-button>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      pageindex:1,
+      goodslist:[]
+    }
+  },
+  created() {
+    this.getGoodsList()
+  },
+  methods:{
+    getGoodsList(){
+      this.$http.get('api/getgoods',{
+        params:{
+          pageindex:this.pageindex
+        }
+      }).then(result=>{
+        if(result.body.status==0){
+          this.goodslist=this.goodslist.concat(result.body.message)
+        }
+      })
+    },
+    getMore(){
+      this.pageindex++
+      this.getGoodsList()
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
 .goodslist {
@@ -98,7 +127,7 @@ export default {};
     }
     .info {
       background-color: #e4e4e4;
-      
+
       bottom: 0;
       p {
         margin: 0;
