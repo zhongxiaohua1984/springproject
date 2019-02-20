@@ -58,7 +58,7 @@
           <p class="price">
             市场价：
             <del>￥2399</del>&nbsp;&nbsp;销售价
-            <span class="now_sprice">￥2199</span>
+            <span class="now_sprice">￥{{price}}</span>
             <span></span>
           </p>
           <!-- <p>购买数量：<numbox :max="goodsInfo.quan_gagag" @getCount="getSelectedCount"></numbox></p> -->
@@ -112,7 +112,8 @@ export default {
       goodsInfo:{},
       flag:false,
       selectedCount:1,
-      nums:15
+      nums:15,
+      price:2199,
     };
   },
   created() {
@@ -155,6 +156,13 @@ export default {
     },
     addToShopCar(){
       this.flag=!this.flag
+      var goodsInfo={
+        id:this.id,
+        count:this.selectedCount,
+        price:this.price,
+        selected:true
+      }
+      this.$store.commit('addToCar',goodsInfo)
     },
     beforeEnter(el){
       el.style.transform="translate(0,0)"

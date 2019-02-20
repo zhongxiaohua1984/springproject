@@ -10,7 +10,7 @@ axios.defaults.baseURL = 'http://vue.studyit.io'; // 全局配置axios请求的�
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // 导入vuex
-import vuex from './store/vuex.js'
+import store from './store/vuex'
 
 // qs
 import qs from 'qs';
@@ -45,7 +45,7 @@ Vue.filter('dateFormat', function (dateStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
 new Vue({
   el: '#app',
   router,
-  vuex,
+  store,
   qs,
   components: { App },
   template: '<App/>'
