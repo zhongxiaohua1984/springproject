@@ -37,7 +37,7 @@ export default {
       });
       this.$http({
         method: "post",
-        url: "api/getnew/",
+        url: "/api/getnew/",
         data: postData
       }).then(result => {
         if(result.body.status==0){

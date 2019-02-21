@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     getAllCategory() {
-      this.$http.get("api/getimgcategory").then(result => {
+      this.$http.get("/api/getimgcategory").then(result => {
         if (result.body.status == 0) {
           result.body.message.unshift({ itle: "全部", id: 0 });
           this.cates = result.body.message;
@@ -76,7 +76,7 @@ export default {
     },
     getPhotoListByCateId(cateId) {
       this.$http
-        .get("api/getimages/", {
+        .get("/api/getimages/", {
           params: {
             cateId
           }

@@ -62,7 +62,7 @@ export default {
   methods: {
     getPhotoInfo() {
       this.$http
-        .get("api/getimageInfo/", {
+        .get("/api/getimageInfo/", {
           params: {
             id: this.id
           }
@@ -75,7 +75,7 @@ export default {
     },
     getThumbs() {
       this.$http
-        .get("api/getthumimages/", {
+        .get("/api/getthumimages/", {
           params: {
             id: this.id
           }

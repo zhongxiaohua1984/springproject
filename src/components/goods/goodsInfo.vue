@@ -123,7 +123,7 @@ export default {
   methods: {
     getLunbotu() {
       this.$http
-        .get("api/getthumimages/", {
+        .get("/api/getthumimages/", {
           params: {
             id: this.id
           }
@@ -138,7 +138,7 @@ export default {
         });
     },
     getGoodsInfo(){
-      this.$http.get('api/goods/getinfo/',{
+      this.$http.get('/api/goods/getinfo/',{
         params:{
           id:this.id
         }

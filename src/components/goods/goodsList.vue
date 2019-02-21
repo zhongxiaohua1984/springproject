@@ -85,7 +85,7 @@ export default {
   },
   methods:{
     getGoodsList(){
-      this.$http.get('api/getgoods',{
+      this.$http.get('/api/getgoods',{
         params:{
           pageindex:this.pageindex
         }

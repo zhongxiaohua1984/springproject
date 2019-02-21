@@ -75,7 +75,7 @@ export default {
         id: this.id,
        content:this.msg.trim()
       });
-      this.$http.post('api/postcomment/',postData).then(result=>{
+      this.$http.post('/api/postcomment/',postData).then(result=>{
         if(result.body.status==0){
          var cmt={
            user_name:'匿名用户',
