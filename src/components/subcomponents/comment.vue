@@ -20,7 +20,7 @@
           第1楼&nbsp;&nbsp;用户：匿名用户&nbsp;&nbsp;发表时间：{{Date.now() | dateFormat}}
         </div>
         <div class="cmt-body">
-            gsg个公司公司各耍各
+            天王盖地虎
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
           第1楼&nbsp;&nbsp;用户：匿名用户&nbsp;&nbsp;发表时间：{{Date.now() | dateFormat}}
         </div>
         <div class="cmt-body">
-            gsg个公司公司各耍各
+            天王盖地虎
         </div>
       </div>
     </div>
