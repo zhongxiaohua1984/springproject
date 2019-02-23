@@ -112,7 +112,7 @@ export default {
       goodsInfo:{},
       flag:false,
       selectedCount:1,
-      nums:15,
+      nums:20,
       price:2199,
     };
   },
@@ -196,6 +196,13 @@ export default {
   background-color: #eee;
   overflow: hidden;
   position: relative;
+  .mui-card-header {
+    h1 {
+      color: #1f7eeb;
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
   .now_sprice {
     color: red;
     font-size: 16px;
