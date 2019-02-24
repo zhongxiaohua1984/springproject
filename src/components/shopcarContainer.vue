@@ -28,11 +28,9 @@
               <h1> 原创*豆蔻*JK制服百褶裙 学院风少女百搭格裙</h1>
               <p>
                 <span class="price">￥2199</span>
-                <cmt></cmt>
+                <cmt :initcount="$store.getters.getGoodsCount[item.id]"></cmt>
                 <a href="#">删除 </a>
-                <!-- {{$store.getters.getGoodsCount[item.id]}} -->
-                {{$store.getters.getGoodsCount}}
-              </p>
+                <!-- {{$store.getters.getGoodsCount[item.id]}} -->              </p>
             </div>
           </div>
         </div>
@@ -61,9 +59,16 @@ export default {
   },
   methods: {
     getGoodsList(){
-      var idArr=[];
-      this.$store.state.car.forEach(item =>idArr.push(item.id));
-      if(idArr.lenth<=0) return
+      // var idArr=[];
+      // this.$store.state.car.forEach(item =>idArr.push(item.id));
+      // if(idArr.lenth<=0) return
+      // this.$http.get('/api/goods/getshopcarlist',{
+      //   params:idArr.join(',')
+      var idArr=[]
+      this.$store.state.car.forEach(item => {
+        idArr.push(item.id)
+      })
+      if(idArr.length<=0)return
       this.$http.get('/api/goods/getshopcarlist',{
         params:idArr.join(',')
       }).then(item=>{
