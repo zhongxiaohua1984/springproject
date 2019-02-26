@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 vue.use(Vuex);
 
 var car = JSON.parse(localStorage.getItem('car') || '[]')
-console.log(typeof car)
+// console.log(typeof car)
 const store = new Vuex.Store({
   state: {
     car:car
@@ -24,6 +24,26 @@ const store = new Vuex.Store({
       }
       localStorage.setItem('car', JSON.stringify(state.car))
     },
+    updateGoodsInfo(state,goodsinfo){
+      state.car.some(item=>{
+        if(item.id==goodsinfo.id){
+          item.count=parseInt(goodsinfo.count)
+          return true
+        }
+        // item.count=parseInt(goodsinfo.count)
+        // return true
+      })
+     localStorage.setItem('car',JSON.stringify(state.car))
+    },
+    removeFormCar(state,id){
+      state.car.some((item,i)=>{
+        if(item.id==id){
+          state.car.splice(i,1)
+          return true
+        }
+      })
+      localStorage.setItem('car',JSON.stringify(state.car))
+    }
   },
     getters: {
       getAllCount(state) {
