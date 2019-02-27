@@ -21,7 +21,9 @@
       <div class="mui-card">
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
-            <mt-switch></mt-switch>
+            <!-- <mt-switch v-model="$store.getters.getGoodsSelected[item.id]"></mt-switch> -->
+            <!-- <mt-switch v-model="$store.getters.getGoodsSelected" @change="selectedChange(item.id,$store.getters.getGoodsSelected[item.id])"></mt-switch> -->
+            <mt-switch v-model="$store.getters.getGoodsSelected" @change="selectedChange(item.id,$store.getters.getGoodsSelected[item.id])"></mt-switch>
             <img src="https://gd3.alicdn.com/imgextra/i1/1644008796/O1CN01CWffLT2EqcHmtBqfW_!!1644008796.jpg" alt>
             <div class="info">
               <h1>原创*豆蔻*JK制服百褶裙 学院风少女百搭格裙</h1>
@@ -47,7 +49,7 @@
                 总计（不含运费）
               </p>
               <p>
-                已勾选商品 <span class="red">0</span>件，总价：<span class="red">￥0</span>
+                已勾选商品 <span class="red">{{$store.getters.getGoodsCountAndAmount.count}}</span>件，总价：<span class="red">￥{{$store.getters.getGoodsCountAndAmount.amount}}</span>
               </p>
             </div>
               <mt-button type="danger">结算</mt-button>
@@ -93,6 +95,9 @@ export default {
     remove(id, index) {
       this.goodsList.splice(index, 1);
       this.$store.commit("removeFoemCar", id);
+    },
+    selectedChange(id,val){
+      this.$store.commit('updateGoodsSelected',{id,selected:val})
     }
   },
   components: {
