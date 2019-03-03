@@ -30,10 +30,10 @@ export default {
   },
   props: ["max"],
   watch: {
-    max: function(newval, oldval) {
+    max: function(newVal, oldVal) {
       mui('.mui-numbox')
         .numbox()
-        .setOption("max", newval);
+        .setOption("max", newVal);
     }
   }
 };

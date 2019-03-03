@@ -64,9 +64,12 @@ this.flag=this.$route.path==='/home'?false:true
 </script>
 
 <style lang="scss" scoped>
+      ::-webkit-scrollbar {width: 0px;}
+::-webkit-scrollbar {display: none;/*隐藏滚轮*/}
 .app-container {
+
   .mint-header {
-    z-index: 99
+    z-index: 999;
   }
   margin-top: 40px;
   overflow-x: hidden;

@@ -38,6 +38,9 @@ Vue.use(VuePreview)
 // 导入时间插件
 var moment = require('moment');
 
+import fastclick from 'fastclick';
+fastclick.attach(document.body);
+
 Vue.filter('dateFormat', function (dateStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
   return moment(dateStr).format(pattern)
 })

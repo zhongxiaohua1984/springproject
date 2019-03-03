@@ -168,6 +168,14 @@ export default {
       el.style.transform="translate(0,0)"
     },
     enter(el,done){
+      // const ballPotsition=this.$refs.ball.getBoundingClientRect()
+      // const badgePosition=document.getElementById('badge').getBoundingClientRect()
+
+      // const xDist=badgePosition.left-ballPotsition.left
+      // const yDist=badgePosition.top-ballPotsition.top
+      // el.offsetWidth
+      // el.style.transform=`translate(${xDist}px,${yDist}px)`
+      // el.style.transition="all 1s cubic-bezier(.64,-0.09,.68,.64) "
       const ballPotsition=this.$refs.ball.getBoundingClientRect()
       const badgePosition=document.getElementById('badge').getBoundingClientRect()
 
@@ -175,7 +183,7 @@ export default {
       const yDist=badgePosition.top-ballPotsition.top
       el.offsetWidth
       el.style.transform=`translate(${xDist}px,${yDist}px)`
-      el.style.transition="all 1s cubic-bezier(.64,-0.09,.68,.64) "
+      el.style.transition='all 1s cubic-bezier(.64,-0.09,.68,.64)'
       done()
     },
     afterEnter(el){
@@ -220,9 +228,10 @@ export default {
     border-radius: 50%;
     background:red;
     position: absolute;
-    z-index: 999;
+    z-index: 9999;
     top: 420px;
     left:152px
   }
 }
 </style>
+
